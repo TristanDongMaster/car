@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+	<title>微车城</title>
+    <link rel="stylesheet" href="../../css/style-base.css?201512122302">
+    <link rel="stylesheet" href="../../css/style-common.css?201512122302">
+    <link rel="stylesheet" href="../../css/merchant.css?201512122302">
+        <link rel="stylesheet" href="../../css/common.css?201512122302">
+            <link rel="stylesheet" href="../../css/style-mask.css?201512122302">
+</head>
+<body>
+	<header>
+    <div class="headerContainer">
+        <div class="headerContainer_left left">
+      
+        </div>
+        <div class="headerContainer_center">
+            <span></span>
+        </div>
+        <div class="headerContainer_right right">
+      
+        	
+        </div>
+    </div>
+</header>
+
+<div class="container">
+	<div id="merchant">
+	<div id="store-header">
+		<script id="store-header-template" type="x-tmpl-mustache">
+			{{#entity}}
+				<div class="merhcant-header">
+					<div class="merhcant-header-logo">
+						<img src="../../images/logo-test.png">
+					</div>
+				</div>
+				<div class="merchant-content">
+					<div class="merchant-content-top clearfix relative">
+						<div class="content content-logo">
+							<img src={{#convertImg}}{{storeImage}}{{/convertImg}} >
+						</div>
+						<div class="content content-des">
+							<div class="content-detail">
+								<span class="des-title">{{name}} </span> 
+							</div>
+							<div class="content-detail rate-block">
+								{{#convertRate}}
+									{{level}}
+								{{/convertRate}}
+								{{#bail}}
+									<span class="icon padding-zero"><img src="../../images/bao-active.png"></span>
+								{{/bail}}
+								{{^bail}}
+									<span class="icon padding-zero"><img src="../../images/bao-deactivate.png"></span>
+								{{/bail}}
+								{{#certificate}}
+									<span class="icon padding-zero"><img src="../../images/zheng-active.png"></span>
+								{{/certificate}}
+								{{^certificate}}
+									<span class="icon padding-zero"><img src="../../images/zheng-deactivate.png"></span>
+								{{/certificate}}
+							</div>				
+						</div>
+						<div class="store-news "> 
+							<span class="red-radio"></span> 
+							<a href="../mystore/storeNews.html?id={{id}}">店铺动态</a> 
+						</div>
+					</div>
+				</div>
+			{{/entity}}
+		</script>
+	</div>
+
+	<div id="store-body">
+		<script id="store-body-template" type="x-tmpl-mustache">
+			{{#entity}}
+				<a href='../merchant/merchantShow.html?id={{vehicleId}}'  >
+					<div class="merchant-content">
+						<div class="merchant-content-top clearfix relative">
+							<div class="content content-logo">
+								<img src="{{#convertImg}}{{vehicle.titleImage}}{{/convertImg}}">
+							</div>
+							<div class="content content-des">
+								<div class="content-detail">
+									<span class="des-title">{{vehicle.title}}</span> 
+								</div>
+								<div class="content-detail">
+									<div class="price-detail"><span class="price-title">定金: </span><span class="price-red font-size-16">
+									{{#convertPrice}}{{vehicle.deposit}}{{/convertPrice}}</span></div>
+								</div>
+								<div class="content-detail">
+									<div class="price-detail"><span class="price-title">指导价: <span class="">
+									{{#convertPrice}}{{vehicle.marketPrice}}{{/convertPrice}}</span></span></div>
+									<div class="price-detail"><span class="price-title">
+									店铺价: <span class="">{{#convertPrice}}{{vehicle.distributionPrice}}{{/convertPrice}}</span></span></div>
+								</div>
+							</div>
+							<div class="content content-arrow">
+								<span class="arrowRight "></span>
+							</div>
+						</div>
+					</div>	
+				</a>			
+			{{/entity}}
+		</script>
+	</div>
+	<div class="center-block refresh-loading">
+		<span class="icon_bg"><img src="../../images/loading.png"></span>
+	</div>
+	</div>
+</div>
+
+<nav class="clearfix store-nav">
+    <a href="./mystore.html"  class="one on">
+        <div class="beij borderRight">
+            <div class="shnm-1"></div>    <div class="db activeText">首页</div>
+        </div>
+    </a>
+    <a href="./management.html"  class="one on">
+        <div class="beij borderRight">
+            <div class="shnm2"></div>   <div class="db ">商品</div>
+        </div>
+    </a>
+    <a href="tel:18818272067"  class="one on tel">
+        <div class="beij">
+            <div class="shnm5"></div>   <div class="db">电话</div>
+        </div>
+    </a>
+</nav>
+
+
+<script type="text/javascript" src="../../js/lib/zepto.min.js?201512122302"></script> 
+<script type="text/javascript" src="../../js/lib/mustache.min.js?201512122302"></script> 
+<script type="text/javascript" src="../../js/merchant.js?20151212233243"></script>  
+<script type="text/javascript" src="../../js/loading.mask.js?201512122302"></script>
+<script type="text/javascript" src="../../js/carcity.util.js?2015121223232"></script> 
+<script type="text/javascript" src="../../js/interface.js?201512122302"></script> 
+<script type="text/javascript" src="../../js/generalstore/mystore.js?201512122302"></script>
+</body>
+</html>

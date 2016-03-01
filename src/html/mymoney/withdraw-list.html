@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+	<title>微车城</title>
+    <link rel="stylesheet" href="../../css/style-base.css?201512122302">
+    <link rel="stylesheet" href="../../css/style-common.css?201512122302">
+    <link rel="stylesheet" href="../../css/merchant.css?201512122302">
+    <link rel="stylesheet" href="../../css/common.css?201512122302">
+         <link rel="stylesheet" href="../../css/style-mask.css?201512122302">
+</head>
+<body>
+<header>
+    <div class="headerContainer">
+        <div class="headerContainer_left left">
+        	<span class="backIcon" onclick="history.back(-1)"></span>
+        </div>
+        <div class="headerContainer_center">
+            <span>提现记录</span>
+        </div>
+    </div>
+</header>
+
+<div class="container" id="withdraw-list">
+	<div class="merchant-content bg-white">
+			<div class="merchant-content-top clearfix">				
+					<div class="content-detail">
+						<span class="order-detail font-size-16">已提金额: </span>  <span class="price-red font-size-18 withdrawed">0.00</span> 
+					</div>
+			</div>
+	</div>
+	<div id="merchant">
+		<script id="template" type="x-tmpl-mustache">
+			{{#entity}}	
+			<a href="javascript:void(0)">
+				<div class="merchant-content  bg-white">
+					<div class="merchant-content-top clearfix">
+						<div class="left">
+							<div class="title">{{modifiedOn}}</div>
+							<div class="process">
+								<span class="order-detail">已提金额</span> 
+								<span class="action-withdraw">{{status}}</span>
+							</div>
+						</div>
+						<div class="right">
+							<span class="withdraw-list-money price-red"> 
+							{{#convertPrice}}{{amount}}{{/convertPrice}}</span>
+						</div>
+					</div>
+				</div>
+			</a>
+			{{/entity}}
+			{{^entity}}
+				<div class="no-data">暂无数据，请尝试变更查询条件</div>
+			{{/entity}}
+		</script>
+	</div>
+	<div class="center-block refresh-loading">
+			<span class="icon_bg"><img src="../../images/loading.png"></span>
+	</div>
+</div>
+
+<nav class="clearfix">
+    <a href="../home.html"  class="one on">
+        <div class="beij borderRight">
+            <div class="shnm-1"></div>		<div class="db ">首页</div>
+        </div>
+    </a>
+    <a href="../mystore/mymanagement.html"  class="one on">
+        <div class="beij borderRight">
+            <div class="shnm2"></div>		<div class="db ">商品</div>
+        </div>
+    </a>
+    <a href="../mystore/mystore.html" class="one on">
+        <div class="beij borderRight">
+            <div class="shnm3"></div>		<div class="db">微店</div>
+        </div>
+    </a>
+    <a href="../user/index.html"  class="one on">
+        <div class="beij">
+            <div class="shnm4"></div>		<div class="db">我的</div>
+        </div>
+    </a>
+</nav>
+
+	<script type="text/javascript" src="../../js/lib/zepto.min.js?201512122302"></script>
+	<script type="text/javascript" src="../../js/lib/mustache.min.js?201512122302"></script> 
+	    <script type="text/javascript" src="../../js/loading.mask.js?201512122302"></script>
+<script type="text/javascript" src="../../js/carcity.util.js?201512122432"></script>
+<script type="text/javascript" src="../../js/interface.js?201512122302"></script>  
+	<script type="text/javascript" src="../../js/merchant.js?201512122302"></script> 
+	<script type="text/javascript" src="../../js/mymoney/recorde.js?201512122302"></script>
+</body>
+</html>

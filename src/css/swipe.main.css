@@ -1,0 +1,56 @@
+.containerBottom .swipe-wrap {
+    position: relative;
+    min-height: 10em;
+     margin-top: 0px;
+}
+
+.swipe-img {
+    overflow: hidden;
+    visibility: hidden;
+    position: relative;
+}
+
+.swipe-img li {
+    display: block;
+    text-align: center;
+    box-shadow: 0 1px #EBEBEB;
+}
+.swipe-item {
+    overflow: hidden;
+    position: relative;
+}
+
+.swipe-item > a {
+    float: left;
+    display: block;
+    width: 100%;
+    position: relative;
+}
+
+.swipe-img li img {
+    width: 100%;
+}
+
+#swipe-position {
+    position: absolute;
+    bottom: 0.7em;
+    text-align: right;
+    width: 100%;
+}
+
+#swipe-position li {
+    display: inline-block;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 0.7em;
+    background: #CCC;
+    margin: 0 0 0 0.1em;
+    cursor: pointer;
+    opacity: 0.8;
+    -webkit-opacity: 0.8;
+}
+
+#swipe-position li.on {
+    background: #F37021;
+    opacity: 1;
+}

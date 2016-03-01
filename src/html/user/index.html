@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <title>微车城</title>
+    <link rel="stylesheet" href="../../css/style-base.css?201512122302">
+    <link rel="stylesheet" href="../../css/style-common.css?201601220958">
+    <link rel="stylesheet" href="../../css/style-mask.css?201512122302">
+</head>
+<body class="login-register-bg">
+    <header>
+        <div class="headerContainer">
+            <div class="headerContainer_left left">
+                <span class="menu-icon" onclick="menuShow();"></span>
+            </div>
+            <div class="headerContainer_center">
+                <span>个人信息</span>
+            </div>
+            <div class="headerContainer_right right">
+                <!-- <span class="search-icon" onclick=""></span> -->
+            </div>
+        </div>
+    </header>
+    <div class="nav-bottom" id="mainContent">
+
+    </div>
+    <div class="menu hide" id="menu">
+        <div class="menu-list">
+            <ul>
+                <li>
+                    <a href="../merchant/management.html">
+                        <span class="list-icon list-icon-goods"></span>
+                        <span>商品管理</span>
+                    </a>
+                </li>
+                <li class="null-line"></li>
+                <li>
+                    <a href="../myorder/myorder.html">
+                        <span class="list-icon list-icon-order"></span>
+                        <span>我的订单</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../mymoney/mymoney.html">
+                        <span class="list-icon list-icon-income"></span>
+                        <span>我的收入</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./salary.html">
+                        <span class="list-icon list-icon-salary"></span>
+                        <span>资金明细</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../mycustomer/mycustomer.html">
+                        <span class="list-icon list-icon-customer"></span>
+                        <span>我的客户</span>
+                    </a>
+                </li>
+                <li class="null-line"></li>
+                <li>
+                    <a href="./system_info.html">
+                        <span class="list-icon list-icon-system-info"></span>
+                        <span>系统消息</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./system_setting.html">
+                        <span class="list-icon list-icon-system-setting"></span>
+                        <span>系统设置</span>
+                    </a>
+                </li>
+                <li class="null-line"></li>
+                <li>
+                    <a href="javascript:void(0)" id="loginOut">
+                        <span class="list-icon list-icon-exit"></span>
+                        <span>安全退出</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="goodCommon" id="verificationDialog" style="display:none;">
+        <div class="goodTableRow">
+            <div class="goodTableCell">
+                <div class="goodTableContent car-confirm-colors-list-block">
+                    <i class="closeBtn" onclick="javascript:this.parentNode.parentNode.parentNode.parentNode.style.display='none'"></i>
+                    <div class="goodmianContent">
+                        <span class="varification-span" id="varificationSpan">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="goodCommon" id="citySelect" style="display:none;">
+        <div class="goodTableRow">
+            <div class="goodTableCell">
+                <div class="goodTableContent car-confirm-colors-list-block">
+                    <i class="closeBtn" id="citySelectClose"></i>
+                    <input type="hidden" value="0" data-id="0" id="citySelectStatus" />
+                    <input type="hidden" value="" id="province" />
+                    <div class="goodmianContent">
+                        <ul class="city-select-tag" id="citySelectTag" data-index="0">
+                            <!--  <li>
+                                <a href="javascript:void(0)" data-index="{{id}}">{{name}}</a>
+                             </li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="goodCommon" id="changeStatusContent" style="display:none;">
+        <div class="goodTableRow">
+            <div class="goodTableCell">
+                <div class="goodTableContent car-confirm-colors-list-block">
+                    <i class="closeBtn" onclick="javascript:this.parentNode.parentNode.parentNode.parentNode.style.display='none'"></i>
+                    <div class="goodmianContent">
+                       <div class="row setupBlock">
+                            <a class="userCentreColor" href="javascript:void(0)" style="position:relative;" id="changeUserImage">
+                                <input type="file" id="userCentreImgInp" accept="image/*" class="userCentreImgInp" name="userCentreImgInp"/>
+                <span class="questionLine fontSize16">
+                    <div class="goods-desc left">
+                        <span>
+                            <img  src="" width="64px" id="userImageShow">
+                        </span>
+                    </div>
+                    <span class="arrowLeftIcon right arrowLeftIcon-user">
+                        <img src="../../images/arrowLeft.png" width="100%">
+                    </span>
+                </span>
+                            </a>
+                        </div>
+                        <div class="row change-status-content">
+                            <label>昵称：</label><input type="text" id="nicknameShow" />
+                        </div>
+						  <div class="row change-status-content">
+                            <label>真实姓名：</label>
+							<input type="text" id="realnameShow" />
+                        </div>
+                        <div class="row change-status-content">
+                            <label>个性签名：</label><input type="text" id="whatsupShow" />
+                           
+                        </div>
+                        <div class="row change-status-content">
+                            <a class="changeStatusBtn" href="javascript:void(0)" id="changeStatusBtn">修改</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="goodCommon" id="occupationList" style="display: none;">
+        <div class="goodTableRow">
+            <div class="goodTableCell">
+                <div class="goodTableContent car-confirm-colors-list-block">
+                    <i class="closeBtn" onclick="javascript:this.parentNode.parentNode.parentNode.parentNode.style.display='none'"></i>
+                    <div class="goodmianContent car-confirm-colors-block occupationListBlock" id="occupationListBlock">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="clearfix">
+        <a href="../home.html" class="one on">
+            <div class="beij borderRight">
+                <div class="shnm1"></div>    <div class="db ">首页</div>
+            </div>
+        </a>
+        <a href="../merchant/management.html" class="one on">
+            <div class="beij borderRight">
+                <div class="shnm2"></div>   <div class="db ">商品</div>
+            </div>
+        </a>
+        <a href="../mystore/mystore.html" class="one on">
+            <div class="beij borderRight">
+                <div class="shnm3"></div>   <div class="db">微店</div>
+            </div>
+        </a>
+        <a href="../user/index.html" class="one on">
+            <div class="beij">
+                <div class="shnm-4"></div>   <div class="db activeText">我的</div>
+            </div>
+        </a>
+    </nav>
+
+    <!-- 区域选择start -->
+    <script id="citySelectTemplate" type="x-tmpl-mustache">
+        <li>
+            <a href="javascript:void(0)" data-index="{{id}}" data-source="{{children}}">{{name}}</a>
+        </li>
+    </script>
+    <!-- 区域选择 end -->
+    <!-- main content top start -->
+    <script id="mainContentTopTemplate" type="x-tmpl-mustache">
+        <div class="cooperationBorder"></div>
+        <div class="row setupBlock">
+            <a class="userCentreColor" href="javascript:void(0)" id="changeStatus">
+                <span class="questionLine fontSize16">
+                    <div class="goods-desc">
+                        <span>
+                            <img  src="{{userImage}}" width="64px" id="userImage">
+                        </span>
+                        <span class="more-detail-desc">
+                            <span class="font-Size-14 font-weight" id="nickName">{{nickName}}</span>
+
+                            <span id="whatsup">{{whatsup}}</span>
+                        </span>
+                    </div>
+                    <span class="arrowLeftIcon right arrowLeftIcon-user">
+                        <img src="../../images/arrowLeft.png" width="100%">
+                    </span>
+                </span>
+            </a>
+        </div>
+    </script>
+    <!-- main content top end -->
+    <!-- 微信绑定 start -->
+    <script id="weixinTemplate" type="x-tmpl-mustache">
+        <div class="row cooperation_ListLine setupBlock">
+            <a class="userCentreColor" href="./remove_bind.html?name={{nickName}}">
+                <span class="questionLine fontSize16">
+                    微信绑定
+                    <span class="right setupColor">
+                        已绑定<span class="arrowLeftIcon right setupBlockArrow">
+                            <img src="../../images/arrowLeft.png" width="100%">
+                        </span>
+                    </span>
+                </span>
+            </a>
+        </div>
+    </script>
+    <!-- 微信绑定 end -->
+    <!-- main content bottom start -->
+    <script id="mainContentBottomTemplate" type="x-tmpl-mustache">
+        <div class="row cooperation_ListLine setupBlock">
+            <a class="userCentreColor" href="javascript:void(0)" id="address">
+                <span class="questionLine fontSize16">
+                    地址
+                    <span class="right setupColor">
+                     <span class="arrowLeftIcon right setupBlockArrow"><img src="../../images/arrowLeft.png" width="100%"></span> 
+                     <span id="addressText" class="right">{{address}}</span>
+                     </span>
+                     
+                </span>
+            </a>
+        </div>
+        <div class="cooperationBorder"></div>
+        <div class="cooperationBorder"></div>
+        <div class="row cooperation_ListLine setupBlock">
+            <a class="userCentreColor" href="javascript:void(0)" id="occupation">
+                <span class="questionLine fontSize16">
+                    行业
+                    <span class="right setupColor"><span id="occupationText">{{industry}}</span><span class="arrowLeftIcon right setupBlockArrow"><img src="../../images/arrowLeft.png" width="100%"></span></span>
+                </span>
+            </a>
+        </div>
+        <div class="row cooperation_ListLine setupBlock">
+            <a class="userCentreColor" href="./real_name.html" id="realNameHref" data-index="{{realNameAuthStatus}}">
+                <span class="questionLine fontSize16">
+                    实名认证
+                    <span class="right setupColor">{{realStatusText}}<span class="arrowLeftIcon right setupBlockArrow"><img src="../../images/arrowLeft.png" width="100%"></span></span>
+                </span>
+            </a>
+        </div>
+        <div class="row cooperation_ListLine setupBlock">
+            <a class="userCentreColor" href="javascript:void(0)" id="bindCard">
+                <span class="questionLine fontSize16">
+                    银行卡
+                    <span class="right setupColor">{{cardStatusStatusText}}<span class="arrowLeftIcon right setupBlockArrow"><img src="../../images/arrowLeft.png" width="100%"></span></span>
+                </span>
+            </a>
+        </div>
+        <div class="row cooperation_ListLine setupBlock" style="display:none;">
+            <a class="userCentreColor" href="./level_explain.html">
+                <span class="questionLine fontSize16">
+                    微店等级
+                    <span class="right setupColor">
+                        <span id="level">
+                        </span>
+                        <span class="arrowLeftIcon right setupBlockArrow"><img src="../../images/arrowLeft.png" width="100%"></span>
+                    </span>
+                </span>
+            </a>
+        </div>
+        <div class="row setupBlock">
+            <a class="userCentreColor" href="../merchant/management.html">
+                <span class="questionLine fontSize16">
+                    商品管理
+                    <span class="right setupColor">
+                        <span class="arrowLeftIcon right setupBlockArrow">
+                            <img src="../../images/arrowLeft.png" width="100%">
+                        </span>
+                    </span>
+                </span>
+            </a>
+        </div>
+    </script>
+    <!-- main content end -->
+    <!-- 等级说明 start -->
+    <script id="levelTemplate" type="x-tmpl-mustache">
+        <img src="../../images/star_active.png" width="16px" />
+    </script>
+    <!-- 等级说明 end -->
+    <!-- 行业选择 start -->
+    <script id="occupationListTemplate" type="x-tmpl-mustache">
+        <div class="row setupBlock">
+            <a class="userCentreColor user-Centre-" href="javascript:void(0)" data-index="{{Key}}" data-text="{{Value}}">
+                <span class="questionLine fontSize16">
+                    <span class="left">{{Value}}</span>
+                </span>
+            </a>
+        </div>
+    </script>
+    <!-- 行业选择 end -->
+
+    <script src="../../js/lib/jquery.js?201512122302"></script>
+    <script type="text/javascript" src="../../js/ajaxfileupload.js?201512122302"></script>
+
+    <script type="text/javascript" src="../../js/lib/mustache.js?201512122302"></script>
+    <script type="text/javascript" src="../../js/carcity.util.js?201512122302"></script>
+    <script type="text/javascript" src="../../js/loading.mask.js?201512122302"></script>
+
+
+    <script type="text/javascript" src="../../js/user/index.js?201512231848"></script>
+    <script type="text/javascript">
+        function menuShow() {
+            var $menu = $("#menu")
+            if ($menu.hasClass('hide')) {
+                $("#menu").removeClass('hide');
+
+
+            } else {
+                $("#menu").addClass('hide');
+            }
+        }
+
+    </script>
+
+
+</body>
+</html>

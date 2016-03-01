@@ -1,0 +1,149 @@
+ <!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <title>微车城</title>
+    <link rel="stylesheet" href="../../css/style-base.css?201512122302">
+    <link rel="stylesheet" href="../../css/style-common.css?201512122302">
+     <link rel="stylesheet" href="../../css/style-mask.css?201512122302">
+</head>
+<body class="login-register-bg">
+<header>
+    <div class="headerContainer">
+        <div class="headerContainer_left left">
+        	 <span class="backIcon" onclick="history.back(-1)"></span>
+        </div>
+        <div class="headerContainer_center">
+            <span>绑定银行卡</span>
+        </div>
+        <div class="headerContainer_right right">
+            <span class="messIcon" id="bindCard">完成</span>
+        </div>
+    </div>
+</header>
+<div class="login-register-container nav-bottom" id="content">
+        <div class="row">
+            <div class="remove-bind-line">
+                <span>当前账户：<span class="active-text" id="accountName"></span></span>
+            </div>
+        </div>
+</div>
+
+  <div class="goodCommon" id="verificationDialog" style="display:none;">
+        <div class="goodTableRow">
+            <div class="goodTableCell">
+                <div class="goodTableContent car-confirm-colors-list-block">
+                    <i class="closeBtn" onclick="javascript:this.parentNode.parentNode.parentNode.parentNode.style.display='none'"></i>
+                    <div class="goodmianContent">
+                    <span class="varification-span" id="varificationSpan">
+                           
+                    </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+<nav class="clearfix">
+    <a href="../home.html"  class="one on">
+        <div class="beij borderRight">
+            <div class="shnm1"></div>    <div class="db ">首页</div>
+        </div>
+    </a>
+    <a href="../merchant/management.html"  class="one on">
+        <div class="beij borderRight">
+            <div class="shnm2"></div>   <div class="db ">商品</div>
+        </div>
+    </a>
+    <a href="../mystore/mystore.html" class="one on">
+        <div class="beij borderRight">
+            <div class="shnm3"></div>   <div class="db">微店</div>
+        </div>
+    </a>
+    <a href="../user/index.html"  class="one on">
+        <div class="beij">
+            <div class="shnm-4"></div>   <div class="db activeText">我的</div>
+        </div>
+    </a>
+</nav>
+<!-- 未绑定银行卡 start -->
+<script id="hasContentTemplate" type="x-tmpl-mustache">
+           <div class="row">
+            <div class="remove-bind-line">
+                <span>请填写银行卡信息，用于提取现金！</span>
+            </div>
+        </div>
+           <div class="row">
+            <div class="row-input-label login-area bank-list">
+                <select>
+                   <option>{{bankName}}</option>
+                </select>
+                <span class="arrow-down-icon"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="row-input-label">
+                <input type="number" placeholder="请输入储蓄卡号" value="{{cardCode}}"/>
+            </div>
+        </div>
+         <div class="row">
+            <div class="bank-bind-notice">
+               <span class="title">*注意：</span>
+               <span>a   银行卡开户信息必须同之前填写的姓名、身份证号一样，才能体现</span>
+               <span>
+                   b 开户银行，卡号必须准确无误，否则无法体现。
+               </span>
+            </div>
+        </div>
+    </script>
+<!-- 未绑定银行卡 end -->
+
+<!-- 绑定银行卡 start -->
+<script id="contentTemplate" type="x-tmpl-mustache">
+           <div class="row">
+            <div class="remove-bind-line">
+                <span>请填写银行卡信息，用于提取现金！</span>
+            </div>
+        </div>
+           <div class="row">
+            <div class="row-input-label login-area bank-list">
+                <select id="bankList">
+
+                </select>
+                <span class="arrow-down-icon"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="row-input-label">
+                <input type="number" placeholder="请输入储蓄卡号" id="card"/>
+            </div>
+        </div>
+         <div class="row">
+            <div class="row-input-label">
+                <input type="number" placeholder="请再次输入储蓄卡号" id="cardSure"/>
+            </div>
+        </div>
+         <div class="row">
+            <div class="bank-bind-notice">
+               <span class="title">*注意：</span>
+               <span>a   银行卡开户信息必须同之前填写的姓名、身份证号一样，才能体现</span>
+               <span>
+                   b 开户银行，卡号必须准确无误，否则无法体现。
+               </span>
+            </div>
+        </div>
+    </script>
+<!-- 绑定银行卡 end -->
+
+    <script src="../../js/lib/zepto.min.js?201512122302"></script>
+    <script type="text/javascript" src="../../js/lib/mustache.js?201512122302"></script>
+    <script src="../../js/carcity.util.js?201512122302"></script>
+    <script type="text/javascript" src="../../js/loading.mask.js?201512122302"></script>
+
+    <script src="../../js/user/bind.card.js?201512152106"></script>
+</body>
+</html>

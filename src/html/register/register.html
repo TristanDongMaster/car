@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <title>微车城</title>
+    <link rel="stylesheet" href="../../css/style-base.css?201512122302">
+    <link rel="stylesheet" href="../../css/style-common.css?201512122302">
+    <link rel="stylesheet" href="../../css/style-mask.css?201512122302">
+</head>
+<body class="login-register-bg">
+<header>
+    <div class="headerContainer">
+        <div class="headerContainer_left left">
+            <span class="backIcon" onclick="history.back(-1)"></span>
+        </div>
+        <div class="headerContainer_center">
+            <span>注 册</span>
+        </div>
+        <div class="headerContainer_right right">
+            <a class="messIcon" id="nextStep" href="javascript:void(0)">下一步</a>
+        </div>
+    </div>
+</header>
+<div class="login-register-container">
+    <div class="row">
+        <div class="register-row-input-label">
+            <label>请确认您所在的地区并输入手机号码</label>
+        </div>
+    </div>
+   <div class="row">
+           <a id="address" href="javascript:void(0)">
+            <div class="row-input-label login-area">
+                 <label>所在地区</label>
+                  <span class="arrowLeftIcon setupBlockArrow right">
+                 <img src="../../images/arrowLeft.png" width="100%">
+              </span>
+              <span id="cityLocation" class="right"></span>
+            </div>
+           </a>
+        </div>
+    <div class="row">
+        <div class="row-input-label login-phone-number">
+            <label>+86</label>
+            <input type="text" id="phoneNumber" placeholder="请输入手机号"/>
+        </div>
+    </div>
+</div>
+<div class="row bottom-text">
+    <div class="register-checkbox">
+        <input type="checkbox" id="agreement"/>
+        <label>我已经阅读并同意《平台服务协议》</label>
+    </div>
+</div>
+
+<div class="goodCommon" id="verificationDialog" style="display:none;">
+    <div class="goodTableRow">
+        <div class="goodTableCell">
+            <div class="goodTableContent car-confirm-colors-list-block">
+                <i class="closeBtn" onclick="javascript:this.parentNode.parentNode.parentNode.parentNode.style.display='none'"></i>
+                <div class="goodmianContent">
+                    <span class="varification-span" id="varificationSpan">
+                    </span>
+                </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+<div class="goodCommon" id="citySelect" style="display:none;">
+    <div class="goodTableRow">
+        <div class="goodTableCell">
+            <div class="goodTableContent car-confirm-colors-list-block">
+                <i class="closeBtn" id="citySelectClose"></i>
+                <input type="hidden" value="0" data-id="0" id="citySelectStatus"/>
+                <input type="hidden" value="" id="province"/>
+                <div class="goodmianContent">
+                   <ul class="city-select-tag" id="citySelectTag" data-index="0">
+                    <!--  <li>
+                        <a href="javascript:void(0)" data-index="{{id}}">{{name}}</a>
+                     </li> -->
+                   </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+ <!-- 区域选择start -->
+<script id="citySelectTemplate" type="x-tmpl-mustache">
+    <li>
+       <a href="javascript:void(0)" data-index="{{id}}" data-source="{{children}}">{{name}}</a>
+    </li>
+</script>
+<!-- 区域选择 end -->
+    <script src="../../js/lib/zepto.min.js?201512122302"></script>
+    <script src="../../js/carcity.util.js?201512122302"></script>
+    <script type="text/javascript" src="../../js/lib/mustache.js?201512122302"></script>
+    <script type="text/javascript" src="../../js/loading.mask.js?201512122302"></script>
+   <script src="../../js/lib/zepto.min.js?201512122302"></script>
+   <script src="../../js/carcity.util.js?201512122302"></script>
+   <script type="text/javascript" src="../../js/loading.mask.js?201512122302"></script>
+
+   <script src="../../js/register/register.js?201512122302"></script>
+
+    <iframe id="geoPage" width=0 height=0 frameborder=0 style="display:none;" scrolling="no" src="http://apis.map.qq.com/tools/geolocation?key=YJZBZ-DBNWO-KTTWQ-SB437-V7E6J-6FFTJ&referer=微车城"></iframe>
+<script>
+    window.addEventListener('message', function (event) {
+        // 接收位置信息
+        var loc = event.data;
+        var locString = loc.city+loc.district;
+        $("#cityLocation").text(locString);
+        //alert(JSON.stringify(loc));
+    }, false);
+</script>
+</body>
+</html>

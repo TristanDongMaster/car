@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <title>字母索引</title>
+    <link rel="stylesheet" href="../css/style-base.css?201512122302">
+  <style>
+      .alphabet {
+          position: fixed;
+          top: 50px;
+          left: 0;
+          width: 40px;
+          padding: 5px 0;
+          z-index: 120
+      }
+
+      .alphabet ul {
+          position: relative;
+          z-index: 10;
+          float: right;
+          width: 100%
+      }
+
+      .alphabet .bg {
+          border-radius: 7px;
+          /* background-color: rgba(0,0,0,.7);*/
+          position: absolute;
+          z-index: 1;
+          right: 6px;
+          top: 0;
+          width: 14px
+      }
+
+      .alphabet li {
+          font-size: 12px;
+          color: #333;
+          padding: 0 6px 0 20px;
+          text-align: center
+      }
+
+      .alphabet li.active {
+          /* color: #f02387*/
+      }
+
+
+  </style>
+</head>
+<body>
+<div class="alphabet" id="brand-search-alphabet">
+    <div class="bg J_brand-bg" style="height: 656px;"></div>
+    <ul class="J_brand-filter" id="alphabet" style="height: 646px; display: block;" id="J_brand-filter">
+        <li style="cursor: pointer; height: 17.7037px;" class="" data-index="常用快递">※</li>
+        <li style="cursor: pointer; height: 17.7037px;" class="" data-index="A">A</li>
+        <li style="cursor: pointer; height: 17.7037px;" class="" data-index="B">B</li>
+        <li style="cursor: pointer; height: 17.7037px;" class="" data-index="C">C</li>
+        <li style="cursor: pointer; height: 17.7037px;" class="" data-index="D">D</li>
+        <li style="cursor: pointer; height: 17.7037px;" class="" data-index="E">E</li>
+        <li style="cursor: pointer; height: 17.7037px;" class="" data-index="F">F</li>
+        <li style="cursor: pointer; height: 17.7037px;" class="" data-index="G">G</li>
+        <li style="cursor: pointer; height: 17.7037px;" class="" data-index="H">H</li>
+        <li style="cursor: pointer; height: 17.7037px;" class="" data-index="H">I</li>
+        <li style="cursor: pointer; height: 17.7037px;" class="" data-index="J">J</li>
+        <li style="cursor: pointer; height: 17.7037px;" class="" data-index="K">K</li>
+        <li style="cursor: pointer; height: 17.7037px;" class="" data-index="L">L</li>
+        <li style="cursor: pointer; height: 17.7037px;" class="" data-index="M">M</li>
+        <li style="cursor: pointer; height: 17.7037px;" class="" data-index="M">N</li>
+        <li style="cursor: pointer; height: 17.7037px;" class="" data-index="M">O</li>
+        <li style="cursor: pointer; height: 17.7037px;" class="" data-index="P">P</li>
+        <li style="cursor: pointer; height: 17.7037px;" class="" data-index="Q">Q</li>
+        <li style="cursor: pointer; height: 17.7037px;" class="" data-index="S">S</li>
+        <li style="cursor: pointer; height: 17.7037px;" class="" data-index="T">T</li>
+        <li style="cursor: pointer; height: 17.7037px;" class="" data-index="U">U</li>
+        <li style="cursor: pointer; height: 17.7037px;" class="" data-index="W">W</li>
+        <li style="cursor: pointer; height: 17.7037px;" class="" data-index="X">X</li>
+        <li style="cursor: pointer; height: 17.7037px;" class="" data-index="Y">Y</li>
+        <li style="cursor: pointer; height: 17.7037px;" class="" data-index="Z">Z</li>
+    </ul>
+</div>
+<script src="../js/lib/zepto.min.js?201512122302"></script>
+<script>
+    $("#alphabet").delegate("li","click",function(){
+        console.log($(this).text());
+    });
+</script>
+</body>
+
+</html>

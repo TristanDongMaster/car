@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <title>微车城</title>
+    <link rel="stylesheet" href="../../css/style-base.css?20151212">
+    <link rel="stylesheet" href="../../css/style-common.css?20160116">
+    <link rel="stylesheet" href="../../css/style-mask.css?20160115">
+</head>
+<body class="">
+    <header>
+        <div class="headerContainer">
+            <div class="headerContainer_left left">
+                <span class="backIcon" onclick="history.back(-1)"></span>
+            </div>
+            <div class="headerContainer_center">
+                <span>关联登陆</span>
+            </div>
+            <div class="headerContainer_right right">
+
+            </div>
+        </div>
+    </header>
+    <div class="bor-header-top">
+        <div class="row">
+            <span id="photo" class="bor-phone"></span>
+        </div>
+        <div class="row">
+            <div class="register-row-input-label">
+                <label class="bor-color">亲爱的微车城用户：<span id="nickname"></span></label>
+            </div>
+            <div class="register-row-input-label bor-margin-top">
+                <label class="bor-color-black bor-color-font-small">请关联一个微车城账户</label>
+            </div>
+        </div>
+        <div class="row bor-margin-top">
+            <div class="register-row-input-label">
+                <label class="bor-color">您还没有微车城账号？</label>
+            </div>
+        </div>
+         <div class="row bor-margin-top-btn bor-btn bor-btn-active">
+                <button onclick="location.href = '/home/WeChatBindPhone?wechatOpenId=' + openId">快速注册</button>
+           </div>
+           <div class="row bor-margin-top-btn">
+            <div class="register-row-input-label">
+                <label class="bor-color">微车城已有账号？</label>
+            </div>
+        </div>
+        <div class="row bor-margin-top-btn bor-btn">
+            <button onclick="location.href='/w/h/bind/wlogin.html?openid='+openId">关联已有账号</button>
+        </div>
+    </div>
+   <!--  <div class="row bottom-text">
+        <div class="register-checkbox">
+            <label>我已经阅读并同意《平台服务协议》</label>
+        </div>
+    </div> -->
+
+
+    <script src="../../js/lib/zepto.min.js?20151212"></script>
+    <script src="../../js/carcity.util.js?20151212"></script>
+    <script type="text/javascript" src="../../js/lib/mustache.js?20151212"></script>
+    <script type="text/javascript" src="../../js/loading.mask.js?20151212"></script>
+
+
+
+
+    <script>
+        var openId = null;
+        var photo = null;
+        var name = null;
+        $(function () {
+            openId = carcityutil.getValueFromURL("openid");
+            photo = carcityutil.getValueFromURL("photo");
+            name = carcityutil.getValueFromURL("name");
+
+            $("#nickname").text(decodeURIComponent(name));
+            $("#photo").html("<img src='" + decodeURIComponent(photo) + "'/>");
+        });
+
+    </script>
+
+</body>
+</html>

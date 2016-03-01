@@ -1,0 +1,40 @@
+
+      .alphabet {
+          position: fixed;
+          top: 50px;
+          left: 0;
+          width: 40px;
+          padding: 5px 0;
+          z-index: 120
+      }
+
+      .alphabet ul {
+          position: relative;
+          z-index: 10;
+          float: right;
+          width: 100%
+      }
+
+      .alphabet .bg {
+          border-radius: 7px;
+          /* background-color: rgba(0,0,0,.7);*/
+          position: absolute;
+          z-index: 1;
+          right: 6px;
+          top: 0;
+          width: 14px
+      }
+
+      .alphabet li {
+          font-size: 12px;
+          color: #333;
+          padding: 0 6px 0 20px;
+          text-align: center
+      }
+
+      .alphabet li.active {
+          /* color: #f02387*/
+      }
+
+
+  

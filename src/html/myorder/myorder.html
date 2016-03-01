@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+	<title>微车城</title>
+    <link rel="stylesheet" href="../../css/style-base.css?201512122302">
+    <link rel="stylesheet" href="../../css/style-common.css?201512122302">
+    <link rel="stylesheet" href="../../css/merchant.css?201512122302">
+        <link rel="stylesheet" href="../../css/common.css?201512122302">
+       <link rel="stylesheet" href="../../css/style-mask.css?201512122302">
+</head>
+<body>
+<header>
+    <div class="headerContainer">
+        <div class="headerContainer_left left">
+        	<span class="backIcon" onclick="history.back(-1)"></span>
+        </div>
+        <div class="headerContainer_center">
+            <span>我的订单</span>
+        </div>
+        <div class="headerContainer_right right">
+        	<a href="../search.html">       	<span class="searchIcon hide"></span></a>
+        </div>
+    </div>
+</header>
+
+<div class="filter-block">
+  <div class="filter-order clearfix">
+        <div class="filter-btn left filter-brand">
+        <span>订单状态</span><span class="icon_sm"><img src="../../images/arrowDown.png"></span>
+        </div>
+        <div class=" right">
+        <span class="padding-12 filter-money filter-time">
+        	<span>时间</span><span class="arrow-down-css"></span>
+        </span>    
+        <span  class="padding-12 filter-money filter-amount">
+        	 	<span>金额</span><span class="arrow-down-css"></span>
+        </span>      
+        </div>
+    </div>	
+</div>
+
+<div class="container container-filter">
+	<div id="merchant">
+		<script id="template" type="x-tmpl-mustache">
+			{{#entity}}
+				<div class="merchant-content">
+					<div class="order-status clearfix">
+						<span class="order-no left">{{orderNo}}</span>
+						<span class="status right">{{statusName}}</span>
+					</div>
+					<a href="order_status.html?id={{id}}">
+						<div class="merchant-content-top clearfix">
+								<div class="content content-logo">
+									<img src="{{#orderItems}}{{#convertImg}}{{goodsTitleImage}}{{/convertImg}}{{/orderItems}}">
+								</div>
+								<div class="content content-des">
+									<div class="content-detail">
+										<span class="des-title">{{#orderItems}}{{goodsTitle}}{{/orderItems}}</span> 
+									</div>
+									<div class="content-detail">
+										<div class="order-detail"><span class="order-title">最后修改: </span><span class="order-time">2015-02-12 1254</span></div>
+								
+									</div>
+									<div class="content-detail">
+										<div class="order-detail"><span class="order-title">客户名: </span><span class="order-name">{{customerName}}</span></div>
+									</div>
+								</div>
+								<div class="content content-arrow">
+									<span class="arrowRight "></span>
+								</div>
+						</div>
+					</a>
+				</div>
+			{{/entity}}
+			{{^entity}}
+				<div class="no-data">暂无数据，请尝试变更查询条件</div>
+				{{/entity}}
+		</script>
+	</div>
+	<div class="center-block refresh-loading">
+			<span class="icon_bg"><img src="../../images/loading.png"></span>
+	</div>	
+</div>
+
+<div class="dialog-filter dialog-block">
+	<div class="dialog-custom-container">
+		<div class="social-share bg-white">
+			<div class="content-block">
+		        <div class="filter-dialog">
+		        	<div class="filter-brand filter-value-container">
+		        		<span class="filter-value" value-id="0">全部</span>
+			        	<span class="filter-value" value-id="1">已提交</span>
+			        	<span class="filter-value" value-id="2">已确认</span>
+			        	<span class="filter-value" value-id="3">未支付</span>
+			        	<span class="filter-value" value-id="4">已支付</span>
+			        	<span class="filter-value" value-id="5">确认到账</span>
+			        	<span class="filter-value" value-id="6">申请退款</span>
+			        	<span class="filter-value" value-id="7">备车</span>
+			        	<span class="filter-value" value-id="8">已完成</span>
+			        	<span class="filter-value" value-id="-1">已取消</span>
+		        	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<nav class="clearfix">
+    <a href="../home.html"  class="one on">
+        <div class="beij borderRight">
+            <div class="shnm-1"></div>		<div class="db ">首页</div>
+        </div>
+    </a>
+    <a href="../mystore/mymanagement.html"  class="one on">
+        <div class="beij borderRight">
+            <div class="shnm2"></div>		<div class="db ">商品</div>
+        </div>
+    </a>
+    <a href="../mystore/mystore.html" class="one on">
+        <div class="beij borderRight">
+            <div class="shnm3"></div>		<div class="db">微店</div>
+        </div>
+    </a>
+    <a href="../user/index.html"  class="one on">
+        <div class="beij">
+            <div class="shnm4"></div>		<div class="db">我的</div>
+        </div>
+    </a>
+</nav>
+
+	<script type="text/javascript" src="../../js/lib/zepto.min.js?201512122302"></script> 
+	<script type="text/javascript" src="../../js/merchant.js?201512122302"></script> 
+	<script type="text/javascript" src="../../js/loading.mask.js?201512122302"></script>
+	<script type="text/javascript" src="../../js/lib/mustache.min.js?201512122302"></script> 
+	<script type="text/javascript" src="../../js/carcity.util.js?201512122302"></script> 
+	<script type="text/javascript" src="../../js/interface.js?201512122302"></script> 
+	<script type="text/javascript" src="../../js/myorder/myorder.js?201512122302"></script>
+</body>
+</html>
